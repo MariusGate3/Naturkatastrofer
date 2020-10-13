@@ -13,8 +13,10 @@ class DataBroker {
     data = loadTable(file, "header");
     
     for(int i = 0; i < data.getRowCount(); i++){
-     String country = data.getString(
-      
+     TableRow row = data.getRow(i);
+     
+ String country = row.getString("Country Name");
+      println(country);
       
       
     }

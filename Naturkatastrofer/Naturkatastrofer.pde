@@ -9,9 +9,5 @@ void setup()  {
 
 void draw() {
 
-
-  
- 
-  
-  
+; 
 }

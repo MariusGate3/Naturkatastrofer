@@ -1,8 +1,6 @@
 class DataBroker {
-  String file;
-  String[] countries;
-  String[] years;
-  
+  String file; 
+  Table data;
   
   DataBroker(String file) {
 
@@ -12,11 +10,9 @@ class DataBroker {
 
   void loadData() {
 
-    String[] data = loadStrings(file);
-
-    countries = splitTokens("data", ",");
+     data = loadTable(file, "header");
+     println(data.getColumnCount());
     
-        println(data);
   }
 
 

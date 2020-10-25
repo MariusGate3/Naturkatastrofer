@@ -1,32 +1,26 @@
 class DataBroker {
   String file;
-  Table data;
+  String[] countries;
+  String[] years;
   
-  DataBroker(String file){
-   
+  
+  DataBroker(String file) {
+
     this.file = file;
   }
-  
+
 
   void loadData() {
 
-    data = loadTable(file, "header");
-    
-    for(int i = 0; i < data.getRowCount(); i++){
-     TableRow row = data.getRow(i);
-     
- String country = row.getString("Country Name");
-      println(country);
-      
-      
-    }
-    
-  }
-}
+    String[] data = loadStrings(file);
 
-void getData(String country, int year){
- 
-  
-  
-  
+    countries = splitTokens("data", ",");
+    
+        println(data);
+  }
+
+
+
+  void getData(String country, int year) {
+  }
 }

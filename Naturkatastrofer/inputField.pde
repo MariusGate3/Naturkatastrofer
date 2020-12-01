@@ -32,14 +32,13 @@ class inputField {
 
         clicked = true;
       }
-    } else if(!overField())
-    {
+    } else if (!overField()) {
 
       clicked = false;
       Pressed = false;
     }
 
-  //  println(clicked);
+    //  println(clicked);
   }
 
   boolean isClicked() {

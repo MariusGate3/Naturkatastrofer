@@ -15,16 +15,13 @@ void setup() {
 
 
 void draw() {
-
+  g.display(db, f, f1);
 
   f.display();
   f1.display();
-  
+
   f.fieldClicked();
   f1.fieldClicked();
-  
-  g.display();
-
 }
 
 void keyReleased() {

@@ -11,12 +11,18 @@ class DataBroker {
 
     String[] data = loadStrings(filename);
     String[] headers = split(data[0], ","); 
+    
+    println(headers);
+    
+
+
 
     for (int i = 1; i < data.length; i++) {
 
       String[] row = split(data[i], ",");
 
       String country = row[1];
+     
 
       for (int j = 2; j < row.length; j++) {
 
@@ -33,7 +39,7 @@ class DataBroker {
 
 
 
-      // println(country);
+      //println(country);
     }
   }
 
@@ -43,12 +49,15 @@ class DataBroker {
     for ( int i = 0; i < dataList.size(); i++) {
 
 
+      if (country.equals(dataList.get(i).country) && year.equals(dataList.get(i).year)) {
 
-      if (country == dataList.get(i).country && year == dataList.get(i).year) {
-
-        specificDeaths = parseInt(dataList.get(i).deaths);
+        specificDeaths = Integer.parseInt(dataList.get(i).deaths);
       }
     }
+    
+   // println(specificDeaths);
+    
+
     return specificDeaths;
   }
 }

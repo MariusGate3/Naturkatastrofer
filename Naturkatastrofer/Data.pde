@@ -1,16 +1,14 @@
 class Data {
- 
+
   String country;
-  int year;
-  int deaths;
-  
-  Data(String country, int year, int deaths){
-   
+  String year;
+  String deaths;
+
+  Data(String country, String year, String deaths) {
+
+
     this.country = country;
     this.year = year;
     this.deaths = deaths;
-    
   }
-  
-  
 }

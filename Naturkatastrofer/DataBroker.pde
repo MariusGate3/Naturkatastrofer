@@ -50,8 +50,13 @@ class DataBroker {
 
 
       if (country.equals(dataList.get(i).country) && year.equals(dataList.get(i).year)) {
-
-        specificDeaths = Integer.parseInt(dataList.get(i).deaths);
+        println("dataList.get(i).deaths:" + dataList.get(i).deaths);
+       
+        
+        String s = dataList.get(i).deaths;
+        String d = s.equals("") ? "0" : s;
+        
+        specificDeaths = Integer.parseInt(d);
       }
     }
     

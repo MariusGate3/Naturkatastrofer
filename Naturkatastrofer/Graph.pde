@@ -1,6 +1,6 @@
 class Graph extends DataBroker {
-  float rectWidth =   412;
-  float xSpacer = 462/144;
+  float rectWidth =   412.0;
+  float xSpacer = rectWidth/114.0;
   float ySpacer = 1;
 
   void display(DataBroker db, inputField f, inputField f1) {
@@ -16,16 +16,15 @@ class Graph extends DataBroker {
       fill(102);
       pushMatrix();
       translate(25, height-150);
-      ellipse(xSpacer*i, (-db.getData(f.text, yearCounterStr ))/ySpacer, 4, 4);
+      ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 4, 4);
       stroke(0);
       popMatrix();
 
       if ( f1.text.equals(yearCounterStr)) {
-        pushMatrix();
         fill(255, 0, 0);
         ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 4, 4);
+        text(db.getData(f.text, yearCounterStr ), xSpacer+(xSpacer*i),(-db.getData(f.text, yearCounterStr ))/ySpacer);
         println(db.getData(f.text, yearCounterStr ));
-        popMatrix();
       }
     }
   }

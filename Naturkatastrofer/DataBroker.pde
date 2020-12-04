@@ -12,7 +12,6 @@ class DataBroker {
     String[] data = loadStrings(filename);
     String[] headers = split(data[0], ","); 
     
-   // println(headers);
     
 
 

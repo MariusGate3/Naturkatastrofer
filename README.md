@@ -1,5 +1,8 @@
 # Naturkatastrofer
 ![Project Image](/Images/img.png)
+
+<img align="center"  src="/Images/img.png">
+
 >Skærmbillede af det færdige program
 ## Opgavebeskrivelse
 - [x] Del.1.: Koden skal kunne hente data og have den forudbestemte objektorienterede struktur

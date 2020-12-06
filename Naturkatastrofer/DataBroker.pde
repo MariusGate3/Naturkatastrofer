@@ -49,7 +49,7 @@ class DataBroker {
 
 
       if (country.equals(dataList.get(i).country) && year.equals(dataList.get(i).year)) {
-        println("dataList.get(i).deaths:" + dataList.get(i).deaths);
+      //  println("dataList.get(i).deaths:" + dataList.get(i).deaths);
        
         
         String s = dataList.get(i).deaths;

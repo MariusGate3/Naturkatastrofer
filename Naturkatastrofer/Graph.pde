@@ -1,7 +1,7 @@
 class Graph extends DataBroker {
   float rectWidth =   412.0;
   float xSpacer = rectWidth/114.0;
-  float ySpacer = 2500;
+  float ySpacer = 100;
   float zoomFactor = 1;
   float viewFactorX = 1;
   float viewFactorY = 1;
@@ -14,28 +14,37 @@ class Graph extends DataBroker {
 
     for ( int i = 0; i < 114; i++) {
       int yearCounter = 2014 - i;
-      String yearCounterStr = str(yearCounter);      
+      String yearCounterStr = str(yearCounter);    
 
-      fill(102);
-      pushMatrix();
-      translate(25, height-135);
-      // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 4, 4);
+      float rectX = ((xSpacer*i)*zoomFactor)+viewFactorX;
+      float rectY = 1+viewFactorY;
 
-      rect(((xSpacer*i)*zoomFactor)+viewFactorX, 0.1*viewFactorY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
+     // if (rectY <= 1.1) {
+       noStroke();
+        println(rectX);
+        fill(102);
+        pushMatrix();
+        translate(25, height-127);
+        // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 4, 4);
 
-      stroke(0);
-      popMatrix();
 
-      if ( f1.text.equals(yearCounterStr)) {
 
-        // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 10, 10);
-        fill(255, 0, 0);
-        rect(((xSpacer*i)*zoomFactor)+viewFactorX, 0.1*viewFactorY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
+        rect(rectX, rectY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
 
-        text(db.getData(f.text, yearCounterStr ), xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer);
-        println(db.getData(f.text, yearCounterStr ));
+        stroke(0);
+        popMatrix();
+
+        if ( f1.text.equals(yearCounterStr)) {
+
+          // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 10, 10);
+          fill(255, 0, 0);
+          //   rect(((xSpacer*i)*zoomFactor)+viewFactorX, 0.1+viewFactorY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
+
+          text(db.getData(f.text, yearCounterStr ), xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer);
+          println(db.getData(f.text, yearCounterStr ));
+        }
       }
-    }
+   // }
 
     // Zoom funktionalitet
 
@@ -71,17 +80,17 @@ class Graph extends DataBroker {
 
       if (keyPressed) {
         if (key == CODED && viewFactorY > 1) {
-          if (keyCode == UP) {
+          if (keyCode == DOWN) {
             println(viewFactorY);
-            viewFactorY += 10;
+            viewFactorY -= 10;
           }
         }
       }
 
       if (keyPressed) {
         if (key == CODED) {
-          if (keyCode == DOWN) {
-            viewFactorY -= 10;
+          if (keyCode == UP) {
+            viewFactorY += 10;
           }
         }
       }

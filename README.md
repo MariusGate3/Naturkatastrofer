@@ -3,6 +3,7 @@
 >Skærmbillede af det færdige program
 ## Opgavebeskrivelse
 - [x] Del.1.: Koden skal kunne hente data og have den forudbestemte objektorienterede struktur
+![Klasse-diagram](Images\Klasse_diagram_hele_naturkatastrofe_projekt.png)
 
 - [x] Del.2: Der skal tilføjes et inputfelt
 

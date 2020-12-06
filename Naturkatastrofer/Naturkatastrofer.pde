@@ -15,7 +15,7 @@ void setup() {
 
 void draw() {
   clear();
-  background(102);
+  background(255);
   g.display(db, f, f1);
 
   f.display();

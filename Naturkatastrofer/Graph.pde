@@ -8,7 +8,8 @@ class Graph extends DataBroker {
 
   void display(DataBroker db, inputField f, inputField f1) {
 
-    fill(200);
+    fill(0);
+    stroke(0);
     rect(25, 25, width-50, height - 150);
 
 
@@ -22,7 +23,7 @@ class Graph extends DataBroker {
       // if (rectY <= 1.1) {
       noStroke();
       println(rectX);
-      fill(102);
+      fill(255);
       pushMatrix();
       translate(25, height-127);
       // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 4, 4);
@@ -37,7 +38,7 @@ class Graph extends DataBroker {
       if ( f1.text.equals(yearCounterStr)) {
 
         // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 10, 10);
-        fill(255, 0, 0);
+        fill(255);
         //   rect(((xSpacer*i)*zoomFactor)+viewFactorX, 0.1+viewFactorY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
 
         text(db.getData(f.text, yearCounterStr ), xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer);

@@ -49,12 +49,15 @@ class inputField {
 
   void display() {
 
-    fill(255);
+    fill(0);
     text(label, xpos-100, ypos+30);
+    strokeWeight(5);
+    stroke(240);
     rect(xpos, ypos, w, h);
     textSize(25);
-    fill(0);
+    fill(255);
     text(text, xpos+15, ypos+35);
+    strokeWeight(1);
   }
 
   void type() {

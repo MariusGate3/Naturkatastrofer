@@ -19,32 +19,51 @@ class Graph extends DataBroker {
       float rectX = ((xSpacer*i)*zoomFactor)+viewFactorX;
       float rectY = 1+viewFactorY;
 
-     // if (rectY <= 1.1) {
-       noStroke();
-        println(rectX);
-        fill(102);
-        pushMatrix();
-        translate(25, height-127);
-        // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 4, 4);
+      // if (rectY <= 1.1) {
+      noStroke();
+      println(rectX);
+      fill(102);
+      pushMatrix();
+      translate(25, height-127);
+      // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 4, 4);
 
 
 
-        rect(rectX, rectY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
+      rect(rectX, rectY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
 
-        stroke(0);
-        popMatrix();
+      stroke(0);
+      popMatrix();
 
-        if ( f1.text.equals(yearCounterStr)) {
+      if ( f1.text.equals(yearCounterStr)) {
 
-          // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 10, 10);
-          fill(255, 0, 0);
-          //   rect(((xSpacer*i)*zoomFactor)+viewFactorX, 0.1+viewFactorY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
+        // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 10, 10);
+        fill(255, 0, 0);
+        //   rect(((xSpacer*i)*zoomFactor)+viewFactorX, 0.1+viewFactorY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
 
-          text(db.getData(f.text, yearCounterStr ), xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer);
-          println(db.getData(f.text, yearCounterStr ));
-        }
+        text(db.getData(f.text, yearCounterStr ), xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer);
+        println(db.getData(f.text, yearCounterStr ));
       }
-   // }
+    }
+    // }
+
+
+    // Linjer som beskriver hvor mange døde
+
+    for (int i = 0; i< 86; i++) {
+      pushMatrix();
+      translate(25, height-127);
+     strokeWeight(0.1);
+     stroke(50);
+      line(0, -i*10, 412, -i*10);
+
+
+      popMatrix();
+      strokeWeight(1);
+      stroke(0);
+    }
+
+
+
 
     // Zoom funktionalitet
 

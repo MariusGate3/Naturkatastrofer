@@ -5,8 +5,7 @@ Graph g = new Graph();
 
 
 void setup() {
-
-  background(102);
+  
 
   size(462, 1000);
 
@@ -15,6 +14,8 @@ void setup() {
 
 
 void draw() {
+  clear();
+  background(102);
   g.display(db, f, f1);
 
   f.display();

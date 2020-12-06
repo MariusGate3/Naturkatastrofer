@@ -2,6 +2,9 @@ class Graph extends DataBroker {
   float rectWidth =   412.0;
   float xSpacer = rectWidth/114.0;
   float ySpacer = 2500;
+  float zoomFactor = 1;
+  float viewFactorX = 1;
+  float viewFactorY = 1;
 
   void display(DataBroker db, inputField f, inputField f1) {
 
@@ -18,19 +21,69 @@ class Graph extends DataBroker {
       translate(25, height-135);
       // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 4, 4);
 
-      rect(xSpacer+(xSpacer*i), 0, 1, (-db.getData(f.text, yearCounterStr ))/ySpacer);
+      rect(((xSpacer*i)*zoomFactor)+viewFactorX, 0.1*viewFactorY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
 
       stroke(0);
       popMatrix();
 
       if ( f1.text.equals(yearCounterStr)) {
-        fill(255, 0, 0);
-        // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 10, 10);
 
-        rect(xSpacer+(xSpacer*i), 0, 1, (-db.getData(f.text, yearCounterStr ))/ySpacer);
+        // ellipse(xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer, 10, 10);
+        fill(255, 0, 0);
+        rect(((xSpacer*i)*zoomFactor)+viewFactorX, 0.1*viewFactorY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
 
         text(db.getData(f.text, yearCounterStr ), xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer);
         println(db.getData(f.text, yearCounterStr ));
+      }
+    }
+
+    // Zoom funktionalitet
+
+    if (keyPressed) {
+      if (key == '+' ) {
+        zoomFactor++;
+      }
+    }
+
+    if (keyPressed) {
+      if (key == '-' && zoomFactor > 1) {
+        zoomFactor--;
+      }
+    }
+
+    // Kamera funktionalitet
+
+    if (keyPressed) {
+      if (key == CODED) {
+        if (keyCode == RIGHT) {
+          println(viewFactorX);
+          viewFactorX -= 10;
+        }
+      }
+    }
+
+    if (keyPressed) {
+      if (key == CODED) {
+        if (keyCode == LEFT && viewFactorX < 1) {
+          viewFactorX += 10;
+        }
+      }
+
+      if (keyPressed) {
+        if (key == CODED && viewFactorY > 1) {
+          if (keyCode == UP) {
+            println(viewFactorY);
+            viewFactorY += 10;
+          }
+        }
+      }
+
+      if (keyPressed) {
+        if (key == CODED) {
+          if (keyCode == DOWN) {
+            viewFactorY -= 10;
+          }
+        }
       }
     }
   }

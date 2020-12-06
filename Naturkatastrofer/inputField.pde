@@ -51,7 +51,7 @@ class inputField {
 
     fill(0);
     text(label, xpos-100, ypos+30);
-    strokeWeight(5);
+    strokeWeight(2);
     stroke(240);
     rect(xpos, ypos, w, h);
     textSize(25);

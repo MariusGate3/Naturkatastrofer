@@ -63,9 +63,13 @@ class Graph extends DataBroker {
 
         rect(rectX, rectY, 1*zoomFactor, ((-db.getData(f.text, yearCounterStr ))/ySpacer)*zoomFactor);
         popMatrix();
-        text(db.getData(f.text, yearCounterStr ), xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer);
-        println(db.getData(f.text, yearCounterStr ));
+      //  text(db.getData(f.text, yearCounterStr ), xSpacer+(xSpacer*i), (-db.getData(f.text, yearCounterStr ))/ySpacer);
+        println(db.getData(f.text, yearCounterStr )+"");
         stroke(0);
+        textSize(25);
+        fill(255);
+        text(db.getData(f.text, yearCounterStr ) + "", 120, 985);
+        
       }
 
       // Jeg ville gerne finde det maks antal døde for valgte land så jeg kan indstille zoomfactoren ud fra det men jeg kan ikke regne ud hvordan det skal gøres.
